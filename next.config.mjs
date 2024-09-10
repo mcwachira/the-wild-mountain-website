@@ -10,6 +10,9 @@ const nextConfig = {
             },
         ],
     },
+
+    // enable site to be exported as a static site
+    // output:"export",
 };
 
 export default nextConfig;

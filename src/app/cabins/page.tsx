@@ -5,6 +5,8 @@ import React, {Suspense} from "react";
 import Spinner from "@/components/Spinner";
 
 
+
+export const revalidate = 3600;
 export const metadata = {
   title: "Cabins",
 };
