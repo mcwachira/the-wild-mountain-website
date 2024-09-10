@@ -3,6 +3,7 @@ import {getCabins} from "@/lib/data-service";
 import CabinList from "@/components/CabinList";
 import React, {Suspense} from "react";
 import Spinner from "@/components/Spinner";
+import Filter from "@/components/Filter";
 
 
 
@@ -11,9 +12,11 @@ export const metadata = {
   title: "Cabins",
 };
 
-export default  async function Page() {
+export default  async function Page({searchParams}) {
   // CHANGE
+    //searchParams makes page dynamic completely
 
+    const filter = searchParams?.capacity ?? "all"
 
   return (
     <div>
@@ -30,8 +33,14 @@ export default  async function Page() {
       </p>
 
 
-        <Suspense fallback={<Spinner/>}>
-            <CabinList/>
+        <div className="flex justify-end mb-8">
+            <Filter/>
+        </div>
+
+
+        {/*//reason for the key is to show a spinner when the specific data based on the filter is loading*/}
+        <Suspense fallback={<Spinner/>} key={filter}>
+            <CabinList filter={filter}/>
         </Suspense>
 
 
