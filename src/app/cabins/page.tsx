@@ -4,6 +4,7 @@ import CabinList from "@/components/CabinList";
 import React, {Suspense} from "react";
 import Spinner from "@/components/Spinner";
 import Filter from "@/components/Filter";
+import ReservationReminder from "@/components/ReservationReminder";
 
 
 
@@ -41,6 +42,7 @@ export default  async function Page({searchParams}) {
         {/*//reason for the key is to show a spinner when the specific data based on the filter is loading*/}
         <Suspense fallback={<Spinner/>} key={filter}>
             <CabinList filter={filter}/>
+            <ReservationReminder/>
         </Suspense>
 
 
