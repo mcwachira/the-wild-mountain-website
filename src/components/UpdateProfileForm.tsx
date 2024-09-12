@@ -3,8 +3,8 @@ import SelectCountry from "@/components/SelectCountry";
 
 function UpdateProfileForm({children}:{children:React.ReactNode}) {
 
-    // const countryFlag = "ke.jpg";
-    // const nationality = "kenya";
+    const countryFlag = "ke.jpg";
+    const nationality = "kenya";
     return (
         <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
             <div className="space-y-2">
