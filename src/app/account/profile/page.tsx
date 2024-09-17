@@ -1,17 +1,24 @@
 import SelectCountry from "@/components/SelectCountry";
 import React from "react";
 import UpdateProfileForm from "@/components/UpdateProfileForm";
+import {auth} from "@/lib/auth";
+import {getGuest} from "@/lib/data-service";
 
 
 export const metadata = {
   title: "Update profile",
 };
 
-export default function Page() {
+export default async function Page() {
   // CHANGE
 
-  const countryFlag = "ke.jpg";
-  const nationality = "kenya";
+    const session = await auth();
+    const guest = await getGuest(session?.user.email)
+
+
+    console.log(guest)
+
+
   return (
     <div>
       <h2 className="font-semibold text-2xl text-accent-400 mb-4">
@@ -24,13 +31,13 @@ export default function Page() {
       </p>
 
       {/*use server component in client . pass it as a prop*/}
-      <UpdateProfileForm>
+      <UpdateProfileForm guest={guest}>
 
         <SelectCountry
             name="nationality"
             id="nationality"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
-            defaultCountry={nationality}
+            defaultCountry={guest?.nationality}
         />
       </UpdateProfileForm>
 
