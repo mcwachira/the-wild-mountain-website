@@ -1,15 +1,15 @@
 "use client"
 import {useTransition} from 'react'
 import { TrashIcon } from '@heroicons/react/24/solid';
-import {deleteReservation} from "@/lib/action";
 
-function DeleteReservation({ bookingId }) {
+
+function DeleteReservation({ bookingId, onDelete }) {
 
     const [isPending, startTransition] = useTransition()
 
     const handleDelete = () => {
         if(confirm('Are you sure you want to delete this reservation?'))
-        startTransition(() =>  deleteReservation(bookingId))
+        startTransition(() =>  onDelete(bookingId))
     }
   return (
 
