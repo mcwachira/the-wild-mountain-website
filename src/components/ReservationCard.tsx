@@ -84,7 +84,7 @@ function ReservationCard({ booking, onDelete }) {
             </>
 
         ) : null}
-            < /div>
+            </div>
           </div>
           );
         }
