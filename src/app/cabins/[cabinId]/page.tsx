@@ -11,7 +11,7 @@ import Spinner from "@/components/Spinner";
 import Cabin from "@/components/Cabin";
 
 
-export  async function generateMetaData({params}: {params:{cabinId:string}}) {
+export  async function generateMetadata({params}: {params:{cabinId:string}}) {
 
     const {name} =  await getCabin(params.cabinId)
     return {
